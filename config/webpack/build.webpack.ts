@@ -17,7 +17,9 @@ export const buildWebpack = (params: IWebpackParams) => {
 
     output: {
       path: paths.output,
-      filename: '[name].[contenthash].js',
+      filename: 'js/[name].[contenthash].js',
+      chunkFilename: 'js/[name].[contenthash].js',
+      assetModuleFilename: 'assets/[hash][ext][query]',
       clean: true,
     },
 

@@ -26,7 +26,7 @@ export const buildLoaders = (
   const stylesLoader = {
     test: /\.s[ac]ss$/i,
     use: [
-      miniCssExtractPluginLoader,
+      isDev ? 'style-loader' : miniCssExtractPluginLoader,
       {
         loader: 'css-loader',
         options: {
@@ -39,5 +39,10 @@ export const buildLoaders = (
     ],
   };
 
-  return [tsLoader, stylesLoader];
+  const assetsLoader = {
+    test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
+    type: 'asset/resource',
+  };
+
+  return [tsLoader, stylesLoader, assetsLoader];
 };
