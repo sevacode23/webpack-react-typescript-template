@@ -4,11 +4,12 @@ import ESLintPlugin from 'eslint-webpack-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 import { IWebpackParams } from './typings';
 
 export const buildPlugins = (params: IWebpackParams) => {
-  const { isDev, paths } = params;
+  const { isDev, paths, isAnalyzer } = params;
 
   const plugins: Configuration['plugins'] = [
     new HtmlWebpackPlugin({ template: paths.html, favicon: paths.favicon }),
@@ -23,6 +24,10 @@ export const buildPlugins = (params: IWebpackParams) => {
     plugins.push(
       ...[new ReactRefreshWebpackPlugin(), new ForkTsCheckerWebpackPlugin()]
     );
+  }
+
+  if (isAnalyzer) {
+    plugins.push(new BundleAnalyzerPlugin());
   }
 
   return plugins;
