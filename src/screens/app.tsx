@@ -1,6 +1,8 @@
+import classes from './app.module.scss';
+
 export const App = () => {
   return (
-    <div>
+    <div className={classes.app}>
       <h1>Hello World</h1>
     </div>
   );

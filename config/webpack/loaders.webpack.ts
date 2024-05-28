@@ -1,5 +1,6 @@
 import { ModuleOptions } from 'webpack';
 import ReactRefreshTypeScript from 'react-refresh-typescript';
+import { loader as miniCssExtractPluginLoader } from 'mini-css-extract-plugin';
 
 import { IWebpackParams } from './typings';
 
@@ -22,5 +23,21 @@ export const buildLoaders = (
     exclude: /node_modules/,
   };
 
-  return [tsLoader];
+  const stylesLoader = {
+    test: /\.s[ac]ss$/i,
+    use: [
+      miniCssExtractPluginLoader,
+      {
+        loader: 'css-loader',
+        options: {
+          modules: {
+            localIdentName: isDev ? '[path][name]__[local]' : '[hash:base64:8]',
+          },
+        },
+      },
+      'sass-loader',
+    ],
+  };
+
+  return [tsLoader, stylesLoader];
 };

@@ -2,6 +2,8 @@ import { createRoot } from 'react-dom/client';
 
 import { App } from '@/screens/app';
 
+import '@/theme/global-styles/global.scss';
+
 const container = document.getElementById('root');
 
 if (!container) {

@@ -8,6 +8,7 @@ This is a template project that uses the following tools, all of which are confi
 - ESLint
 - Prettier
 - MiniCssExtractPlugin
+- SCSS modules
 - Webpack Assets Loader
 - Webpack Bundle Analyzer
 - Dev Server
