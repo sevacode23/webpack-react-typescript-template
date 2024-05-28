@@ -1,8 +1,9 @@
 export type TMode = 'development' | 'production';
 
 export interface IEnv {
-  mode: TMode;
+  mode?: TMode;
   port?: number;
+  isAnalyzer?: boolean;
 }
 
 export interface IWebpackPaths {
@@ -17,4 +18,5 @@ export interface IWebpackParams {
   isDev: boolean;
   paths: IWebpackPaths;
   port?: number;
+  isAnalyzer?: boolean;
 }
