@@ -1,6 +1,6 @@
 # Webpack React TypeScript Template
 
-This is a template project set up with the following tools:
+A template project set up with the following tools:
 
 - Webpack 5
 - React
